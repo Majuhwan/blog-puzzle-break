@@ -1,0 +1,226 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Solve a 6x6 Sudoku, With an Original Practice Grid | Puzzle Break</title><meta name="description" content="Learn the two techniques that crack most 6x6 sudoku grids, then try an original 12-clue puzzle with exactly one solution and a full answer grid."><link rel="canonical" href="https://puzzle-break.howlane.com/how-to-solve-a-6x6-sudoku/">
+<meta property="og:type" content="article"><meta property="og:title" content="How to Solve a 6x6 Sudoku, With an Original Practice Grid | Puzzle Break"><meta property="og:description" content="Learn the two techniques that crack most 6x6 sudoku grids, then try an original 12-clue puzzle with exactly one solution and a full answer grid."><meta property="og:url" content="https://puzzle-break.howlane.com/how-to-solve-a-6x6-sudoku/"><meta property="og:site_name" content="Puzzle Break"><meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f4a261"><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%23f4a261%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2241%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2226%22%20font-weight%3D%22700%22%20fill%3D%22%23fff%22%20text-anchor%3D%22middle%22%3EPB%3C%2Ftext%3E%3C%2Fsvg%3E"><link rel="alternate" type="application/rss+xml" title="Puzzle Break" href="/feed.xml">
+<style>:root{--accent:#f4a261;--fg:#1f1f1f;--muted:#6b6b6b;--line:#e8e8e8;--bg:#fff;--card:#fff;--soft:#f6f6f4;--serif:Charter,"Bitstream Charter","Sitka Text",Cambria,Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{--fg:#ececec;--muted:#a3a3a3;--line:#2c2c2c;--bg:#121212;--card:#181818;--soft:#1c1c1c}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.5}
+a{color:inherit}img,svg{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}.narrow{max-width:700px;margin:0 auto;padding:0 20px}
+header.top{border-bottom:1px solid var(--line);position:sticky;top:0;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);z-index:5}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:18px;letter-spacing:-.01em}.brand svg{width:34px;height:34px}
+nav a{text-decoration:none;color:var(--muted);margin-left:22px;font-size:15px}nav a:hover{color:var(--fg)}
+.hero{padding:56px 0 36px;border-bottom:1px solid var(--line)}.hero h1{font-family:var(--serif);font-size:clamp(34px,5vw,54px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+.hero p{font-size:19px;color:var(--muted);margin:0;max-width:640px}.hero .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent);margin-right:8px}
+.feat{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;padding:40px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.feat .cv{border-radius:14px;overflow:hidden;aspect-ratio:16/9}.feat .cv svg{width:100%;height:100%}
+.feat h2{font-family:var(--serif);font-size:32px;line-height:1.2;margin:8px 0 12px;letter-spacing:-.01em}.feat p{color:var(--muted);font-size:17px;margin:0 0 14px}
+.tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.meta{font-size:14px;color:var(--muted)}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px;padding:36px 0 64px}
+.card{text-decoration:none;display:flex;flex-direction:column;gap:10px}.card .cv{border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:var(--soft)}.card .cv svg{width:100%;height:100%}
+.card h3{font-family:var(--serif);font-size:22px;line-height:1.25;margin:2px 0 0}.card p{margin:0;color:var(--muted);font-size:15px}
+.card:hover h3,.feat:hover h2{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.sec-t{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:36px;margin:0}
+article.post{padding:48px 0 24px}article.post h1{font-family:var(--serif);font-size:clamp(32px,4.6vw,46px);line-height:1.15;letter-spacing:-.02em;margin:10px 0 14px}
+.sub{font-size:21px;color:var(--muted);line-height:1.45;margin:0 0 24px;font-family:var(--serif)}
+.byline{display:flex;align-items:center;gap:12px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:32px}.byline svg{width:42px;height:42px}.byline b{display:block;font-size:15px}
+.pcover{border-radius:14px;overflow:hidden;aspect-ratio:21/9;margin:0 0 36px}.pcover svg{width:100%;height:100%}
+.body{font-family:var(--serif);font-size:20px;line-height:1.72}.body p{margin:0 0 1.25em}.body h2{font-family:var(--sans);font-size:26px;line-height:1.3;margin:1.8em 0 .6em;letter-spacing:-.01em}.body h3{font-family:var(--sans);font-size:21px;margin:1.5em 0 .5em}
+.body ul,.body ol{padding-left:1.3em;margin:0 0 1.25em}.body li{margin:.35em 0}.body a{color:var(--accent);text-underline-offset:3px}
+.body blockquote{margin:1.5em 0;padding:4px 0 4px 20px;border-left:3px solid var(--accent);color:var(--muted);font-style:italic}
+.body table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:16px;line-height:1.45;margin:0 0 1.5em}.body th,.body td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}.body th{font-weight:600;background:var(--soft)}
+.body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85em;background:var(--soft);padding:2px 6px;border-radius:5px}.body pre{background:var(--soft);padding:16px 18px;border-radius:10px;overflow-x:auto;font-size:15px;line-height:1.55}.body pre code{background:none;padding:0}
+.note{font-family:var(--sans);font-size:15px;background:var(--soft);border-radius:12px;padding:16px 18px;color:var(--muted);margin:28px 0}
+.src{font-family:var(--sans);font-size:15px;margin:32px 0 0;padding-top:20px;border-top:1px solid var(--line)}.src h2{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 10px}.src ol{padding-left:1.2em;margin:0}.src li{margin:6px 0;word-break:break-word}.src a{color:var(--accent)}
+.tags{margin:28px 0 0;display:flex;gap:8px;flex-wrap:wrap}.tags span{font-size:14px;background:var(--soft);border-radius:999px;padding:6px 14px}
+.more{border-top:1px solid var(--line);margin-top:48px}
+.page{padding:48px 0 64px}.page h1{font-family:var(--serif);font-size:42px;margin:0 0 20px}.page .body{font-size:19px}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}footer a{color:var(--muted);text-decoration:none;margin-right:16px}
+@media (max-width:760px){.body table{display:block;overflow-x:auto}.body th,.body td{white-space:nowrap}.feat{grid-template-columns:1fr;gap:18px}nav a{margin-left:14px}.body{font-size:18px}.hero{padding:36px 0 24px}}</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Solve a 6x6 Sudoku, With an Original Practice Grid","description":"Learn the two techniques that crack most 6x6 sudoku grids, then try an original 12-clue puzzle with exactly one solution and a full answer grid.","datePublished":"2026-10-11","dateModified":"2026-10-11","author":{"@type":"Organization","name":"Puzzle Break"},"publisher":{"@type":"Organization","name":"Puzzle Break"},"mainEntityOfPage":"https://puzzle-break.howlane.com/how-to-solve-a-6x6-sudoku/","keywords":"sudoku, logic puzzles, number puzzles"}</script></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#f4a261"/><text x="32" y="41" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">PB</text></svg><span>Puzzle Break</span></a><nav><a href="/">Home</a><a href="/about/">About</a><a href="/feed.xml">RSS</a></nav></div></header>
+<main><article class="post narrow"><span class="tag">sudoku</span><h1>How to Solve a 6x6 Sudoku, With an Original Practice Grid</h1><p class="sub">Learn the two techniques that crack most 6x6 sudoku grids, then try an original 12-clue puzzle with exactly one solution and a full answer grid.</p>
+<div class="byline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#f4a261"/><text x="32" y="41" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">PB</text></svg><div><b>Puzzle Break</b><span class="meta">Oct 11, 2026 · 4 min read</span></div></div>
+<div class="pcover"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><defs><linearGradient id="g8027" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(27 80% 92%)"/><stop offset="1" stop-color="hsl(52 70% 80%)"/></linearGradient></defs><rect width="1200" height="600" fill="url(#g8027)"/><circle cx="1026" cy="329" r="139" fill="hsl(46 75% 35%)" opacity="0.33"/><circle cx="634" cy="222" r="134" fill="hsl(44 75% 44%)" opacity="0.14"/><circle cx="1113" cy="415" r="156" fill="hsl(25 75% 59%)" opacity="0.16"/><circle cx="348" cy="209" r="62" fill="hsl(35 75% 41%)" opacity="0.28"/><circle cx="831" cy="460" r="225" fill="hsl(10 75% 51%)" opacity="0.28"/><circle cx="785" cy="142" r="181" fill="hsl(47 75% 37%)" opacity="0.23"/><circle cx="1119" cy="182" r="256" fill="hsl(17 75% 63%)" opacity="0.15"/></svg></div>
+<div class="body"><p>A 6x6 sudoku is the friendliest way into sudoku. It uses only the digits 1 to 6, the grid fits on a sticky note, and almost every beginner grid can be finished with two simple techniques. NRICH, the mathematics enrichment project at the University of Cambridge, keeps a whole collection of sudoku-style puzzles, from 3 by 3 and 4 by 4 &quot;Mathdokus&quot; up to 6 by 6 versions, because filling a grid is a clean way to practice careful reasoning.</p>
+<p>Below you will find the rules, the two techniques, a short worked start, and an original practice grid. The grid was checked against every possible way of filling it, and exactly one completed grid fits the clues, so you never need to guess.</p>
+<h2>The rules of a 6x6 sudoku</h2>
+<ul>
+<li>The grid has 6 rows and 6 columns.</li>
+<li>It is split into six boxes, each 2 rows tall and 3 columns wide.</li>
+<li>Every row, every column, and every box must contain the digits 1 to 6 exactly once.</li>
+</ul>
+<p>That is all. There is no arithmetic involved; the digits could just as well be six different symbols.</p>
+<h2>Technique 1: the only digit that fits a cell</h2>
+<p>Pick an empty cell and list the digits already used in its row, its column, and its box. If five of the six digits are already used, the missing one must go in that cell. Sudoku solvers often call this a &quot;naked single.&quot;</p>
+<h2>Technique 2: the only cell that fits a digit</h2>
+<p>Flip the question around. Pick a row, column, or box and a digit it still needs, say 3. Check each empty cell in that unit and cross off the ones where a 3 is blocked by the cell&#39;s other row, column, or box. If only one cell is left, the 3 goes there. This is usually called a &quot;hidden single.&quot;</p>
+<p>NRICH&#39;s guidance on working systematically describes this kind of habit in general terms: work in a structured order and keep a record, so you can see underlying patterns instead of a mess. For sudoku, that means sweeping the grid in a fixed order (row 1 to row 6, then columns, then boxes) rather than jumping around.</p>
+<h2>The practice grid</h2>
+<p>Rows are numbered 1 to 6 from the top and columns 1 to 6 from the left. A dot is an empty cell. Boxes are rows 1 and 2, rows 3 and 4, and rows 5 and 6, each split into columns 1 to 3 and columns 4 to 6.</p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>C1</th>
+<th>C2</th>
+<th>C3</th>
+<th>C4</th>
+<th>C5</th>
+<th>C6</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>4</td>
+<td>.</td>
+<td>.</td>
+<td>.</td>
+<td>.</td>
+<td>.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>.</td>
+<td>.</td>
+<td>2</td>
+<td>.</td>
+<td>.</td>
+<td>.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>.</td>
+<td>4</td>
+<td>1</td>
+<td>.</td>
+<td>5</td>
+<td>.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>.</td>
+<td>.</td>
+<td>5</td>
+<td>1</td>
+<td>.</td>
+<td>.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>.</td>
+<td>.</td>
+<td>3</td>
+<td>6</td>
+<td>.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>.</td>
+<td>2</td>
+<td>.</td>
+<td>.</td>
+<td>.</td>
+<td>4</td>
+</tr>
+</tbody></table>
+<p>There are 12 clues. Try it before reading the walkthrough.</p>
+<h2>A worked start</h2>
+<p><strong>Step 1, row 5, column 2.</strong> Row 5 already has 5, 3, and 6, so it still needs 1, 2, and 4. Column 2 contains a 4 (row 3) and a 2 (row 6). The only digit left for this cell is <strong>1</strong>.</p>
+<p><strong>Step 2, row 5, column 3.</strong> Row 5 now needs 2 and 4. Column 3 already contains a 2 (row 2), so this cell is <strong>4</strong>, and the last gap in row 5, column 6, must be <strong>2</strong>.</p>
+<p><strong>Step 3, row 6, column 4.</strong> Row 6 needs 1, 3, 5, and 6. Column 4 already holds 1 and 3. The bottom-right box (rows 5 and 6, columns 4 to 6) already holds 3, 6, 2, and 4. The only digit that survives all three checks is <strong>5</strong>.</p>
+<p><strong>Step 4, row 6, column 5.</strong> Row 6 now needs 1, 3, and 6. Column 5 holds 5 and 6, and the bottom-right box holds 3. That leaves <strong>1</strong>.</p>
+<p><strong>Step 5, the 1 in row 1.</strong> Now switch to Technique 2. Row 1 needs a 1 somewhere. Columns 2, 3, 4, and 5 each already contain a 1 (in rows 5, 3, 4, and 6). Row 1, column 1 is taken by the 4. So the 1 in row 1 can only go in <strong>column 6</strong>.</p>
+<p>Keep alternating between the two techniques. Every remaining cell in this grid can be reached that way, without trial and error.</p>
+<h2>Common mistakes on small grids</h2>
+<ul>
+<li><strong>Forgetting the box.</strong> On a 6x6 grid the boxes are rectangles, not squares, so it is easy to check a 3 by 2 area by accident. Lightly outline the six boxes before you start.</li>
+<li><strong>Writing in a digit &quot;because it looks right.&quot;</strong> If you cannot name the row, column, or box that forces it, leave it blank for now.</li>
+<li><strong>Stopping when one technique runs dry.</strong> When no cell has a single candidate, switch to asking where each missing digit can go. The second question often unlocks the first again.</li>
+</ul>
+<h2>Answer</h2>
+<p>The completed grid, which is the only one that satisfies all 12 clues:</p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>C1</th>
+<th>C2</th>
+<th>C3</th>
+<th>C4</th>
+<th>C5</th>
+<th>C6</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>3</td>
+<td>6</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>6</td>
+<td>2</td>
+<td>4</td>
+<td>3</td>
+<td>5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>6</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+<td>5</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+<td>1</td>
+<td>4</td>
+<td>6</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>1</td>
+<td>4</td>
+<td>3</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3</td>
+<td>2</td>
+<td>6</td>
+<td>5</td>
+<td>1</td>
+<td>4</td>
+</tr>
+</tbody></table>
+<p>To check your own grid, add up any row, column, or box. Each should total 21, because 1 + 2 + 3 + 4 + 5 + 6 = 21. A total of 21 does not prove a unit is correct, but any other total proves it is wrong.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>A 6x6 sudoku uses the digits 1 to 6 once in every row, column, and 2 by 3 box.</li>
+<li>Technique 1 asks which digit is the only one left for a cell; Technique 2 asks which cell is the only one left for a digit.</li>
+<li>Sweep the grid in a fixed order and switch techniques when one stops producing placements.</li>
+<li>A well-made beginner grid, like the one above, never requires guessing.</li>
+<li>Every finished row, column, and box sums to 21, which makes a quick error check.</li>
+</ul>
+</div>
+<section class="src"><h2>Sources</h2><ol><li><a href="https://nrich.maths.org/sudokus" rel="noopener" target="_blank">NRICH, University of Cambridge Millennium Mathematics Project, Sudokus</a></li><li><a href="https://nrich.maths.org/articles/developing-mathematical-thinking-working-systematically" rel="noopener" target="_blank">NRICH, University of Cambridge Millennium Mathematics Project, Developing Mathematical Thinking: Working Systematically</a></li></ol></section>
+<div class="tags"><span>sudoku</span><span>logic puzzles</span><span>number puzzles</span></div></article>
+<section class="more"><div class="wrap"><h2 class="sec-t">More from Puzzle Break</h2><div class="list"><a class="card" href="/a-logic-grid-and-whodunit-warm-up/"><div class="cv"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><defs><linearGradient id="g2420" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(27 80% 92%)"/><stop offset="1" stop-color="hsl(52 70% 80%)"/></linearGradient></defs><rect width="1200" height="675" fill="url(#g2420)"/><circle cx="1024" cy="135" r="124" fill="hsl(48 75% 45%)" opacity="0.17"/><circle cx="22" cy="313" r="247" fill="hsl(24 75% 49%)" opacity="0.32"/><circle cx="56" cy="433" r="168" fill="hsl(47 75% 47%)" opacity="0.17"/><circle cx="398" cy="16" r="109" fill="hsl(22 75% 62%)" opacity="0.18"/><circle cx="748" cy="167" r="205" fill="hsl(22 75% 63%)" opacity="0.15"/><circle cx="897" cy="211" r="59" fill="hsl(28 75% 60%)" opacity="0.15"/><circle cx="136" cy="134" r="225" fill="hsl(18 75% 44%)" opacity="0.26"/></svg></div><div><span class="tag">logic puzzles</span><h3>A Logic Grid and Whodunit Warm-up</h3><p>Three original step-by-step deduction puzzles, a bake-off order, a dessert logic grid, and a whodunit, with verified answers at the end.</p><div class="meta">Oct 9, 2026 · 3 min read</div></div></a><a class="card" href="/three-code-breaking-puzzles-to-warm-up-your-brain/"><div class="cv"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><defs><linearGradient id="g3944" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(27 80% 92%)"/><stop offset="1" stop-color="hsl(52 70% 80%)"/></linearGradient></defs><rect width="1200" height="675" fill="url(#g3944)"/><circle cx="193" cy="24" r="173" fill="hsl(4 75% 59%)" opacity="0.32"/><circle cx="569" cy="405" r="73" fill="hsl(36 75% 42%)" opacity="0.31"/><circle cx="190" cy="195" r="238" fill="hsl(3 75% 60%)" opacity="0.15"/><circle cx="813" cy="627" r="131" fill="hsl(48 75% 38%)" opacity="0.29"/><circle cx="624" cy="212" r="228" fill="hsl(31 75% 51%)" opacity="0.33"/><circle cx="273" cy="214" r="256" fill="hsl(32 75% 48%)" opacity="0.15"/><circle cx="731" cy="290" r="214" fill="hsl(4 75% 60%)" opacity="0.15"/></svg></div><div><span class="tag">puzzles</span><h3>Three Code-Breaking Puzzles to Warm Up Your Brain</h3><p>An original letter-shift cipher, an alphabet riddle, and a missing-link word puzzle, each with the answer checked against every possible case.</p><div class="meta">Oct 9, 2026 · 4 min read</div></div></a><a class="card" href="/three-number-sequences-to-test-your-pattern-spotting/"><div class="cv"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><defs><linearGradient id="g3670" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(27 80% 92%)"/><stop offset="1" stop-color="hsl(52 70% 80%)"/></linearGradient></defs><rect width="1200" height="675" fill="url(#g3670)"/><path d="M0 315 Q 600 188 1200 378 L 1200 675 L 0 675 Z" fill="hsl(31 75% 39%)" opacity="0.09"/><path d="M0 665 Q 600 536 1200 729 L 1200 675 L 0 675 Z" fill="hsl(38 75% 49%)" opacity="0.18"/><path d="M0 124 Q 600 42 1200 166 L 1200 675 L 0 675 Z" fill="hsl(12 75% 38%)" opacity="0.16"/><path d="M0 136 Q 600 -34 1200 221 L 1200 675 L 0 675 Z" fill="hsl(45 75% 44%)" opacity="0.15"/><path d="M0 105 Q 600 23 1200 147 L 1200 675 L 0 675 Z" fill="hsl(39 75% 35%)" opacity="0.14"/><path d="M0 566 Q 600 511 1200 594 L 1200 675 L 0 675 Z" fill="hsl(49 75% 45%)" opacity="0.12"/><path d="M0 59 Q 600 -137 1200 157 L 1200 675 L 0 675 Z" fill="hsl(17 75% 63%)" opacity="0.12"/></svg></div><div><span class="tag">number puzzles</span><h3>Three Number Sequences to Test Your Pattern Spotting</h3><p>Three original number sequence puzzles covering multiplication, triangular-style numbers, and growing gaps, with every answer checked.</p><div class="meta">Oct 9, 2026 · 4 min read</div></div></a></div></div></section></main>
+<footer><div class="wrap"><div>&copy; 2026 Puzzle Break · A <a href="https://howlane.com/">Howlane</a> site</div><div><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/feed.xml">RSS</a></div></div></footer>
+</body></html>
